@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: #000;
+  }
+}
+
+/* Glassmorphism helpers */
+.bg-immersive-media {
+  background: radial-gradient(circle at 70% 20%, #4264f5 0%, transparent 60%), radial-gradient(circle at 20% 80%, #6d28d9 0%, transparent 60%), #1a1e2e;
+}
+
+.glass {
+  background: rgba(18, 22, 35, 0.65);
+  backdrop-filter: blur(24px) saturate(210%);
+  -webkit-backdrop-filter: blur(24px) saturate(210%);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.glass-active {
+  background: rgba(40, 40, 40, 0.85);
+  backdrop-filter: blur(30px) saturate(190%);
+}
+
+.glass-active-light {
+  background: rgba(243, 243, 243, 0.9);
+  backdrop-filter: blur(30px) saturate(190%);
+}
+
+/* Scrollbar tweaks */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Start Menu animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+@keyframes slideDownClose {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(50px) scale(0.95);
+    opacity: 0;
+  }
+}
+
+.animate-slide-down-close {
+  animation: slideDownClose 0.15s cubic-bezier(0.7, 0, 0.8, 0.1) forwards;
+}
+
+/* Notification trigger slide from right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(360px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+/* Widget trigger slide from left */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+/* Keyboard animations */
+@keyframes slideUpKeyboard {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-keyboard-slide-up {
+  animation: slideUpKeyboard 0.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+/* Hover effects */
+.fluent-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.fluent-hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle 80px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.06), transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.fluent-hover:hover::after {
+  opacity: 1;
+}
+
+/* Selection colors */
+::selection {
+  background-color: var(--color-sky-500, #38bdf8);
+  color: white;
+}
+
+/* Grid layout desktop selection drag */
+.desktop-select-box {
+  border: 1px solid rgba(0, 120, 212, 0.4);
+  background: rgba(0, 120, 212, 0.1);
+}
+
+/* Shutting down backdrop */
+.shutting-down {
+  filter: brightness(0.1) grayscale(0.8) blur(4px);
+  transition: filter 1.5s ease;
+}
+
+/* Blue screen of death simulator */
+.bsod {
+  background-color: #0078d7;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 10% 15%;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Win11-Web",
+  "description": "A highly faithful web replication of the Windows 11 desktop experience with high-fidelity system windows, taskbar, Start Menu, settings, full virtual keyboard, notepad, calculator, file explorer, and custom responsive layouts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
